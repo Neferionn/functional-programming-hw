@@ -19,10 +19,10 @@ const arr = [1, 5, 10, 4, 6, 12];
 // map with reduce
 
 const mapReduce = (array, fn) => {
+  const emptyArr = [];
   return array.reduce((acc, item) => {
-    acc.push(fn(item));
-    return acc;
-  }, []);
+    return acc.concat(fn(item));
+  }, emptyArr);
 };
 
 console.log(`map with reduce`, mapReduce(arr, multiplyByFive)); //[ 5, 25, 50, 20, 30, 60 ]
@@ -35,12 +35,13 @@ const lessThanTen = (num) => {
 };
 
 const filterReduce = (array, fn) => {
+  const emptyArr = [];
   return array.reduce((acc, item) => {
     if (fn(item)) {
-      acc.push(item);
+      return acc.concat(item);
     }
     return acc;
-  }, []);
+  }, emptyArr);
 };
 console.log(`filter with reduce`, filterReduce(arr, lessThanTen)); //[ 1, 5, 4, 6 ]
 
