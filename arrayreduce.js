@@ -37,9 +37,7 @@ const lessThanTen = (num) => {
 const filterReduce = (array, fn) => {
   const emptyArr = [];
   return array.reduce((acc, item) => {
-    if (fn(item)) {
-      return acc.concat(item);
-    }
+    if (fn(item)) return acc.concat(item);
     return acc;
   }, emptyArr);
 };
